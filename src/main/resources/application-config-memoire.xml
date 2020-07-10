@@ -14,4 +14,25 @@
 			<util:constant static-field="java.lang.System.in"></util:constant>
 		</constructor-arg>
 	</bean>
+
+	<!-- Implementation PlatDaoMemoire -->
+	<!-- PlatDaoMemoire platDaoMemoire = new PlatDaoMemoire(); -->
+	<bean id="platDaoMemoire" class="dev.dao.PlatDaoMemoire" />
+
+	<!-- Implementation du service -->
+	<!-- PlatServiceVersion2 platServiceVersion2 = new PlatServiceVersion2(platDaoMemoire); -->
+	<bean id="platServiceVersion2" class="dev.service.PlatServiceVersion2">
+		<constructor-arg name="dao" ref="platDaoMemoire"/>
+	</bean>
+
+
+	<!-- Implementation menu -->
+	<!-- Menu menu = new Menu(scanner, platServiceVersion2); -->
+	<bean id="menu" class="dev.ihm.Menu">
+		<constructor-arg name="scanner" ref="scanner" />
+		<constructor-arg name="service"
+			ref="platServiceVersion2" />
+	</bean>
+
+
 </beans>
