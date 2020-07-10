@@ -23,9 +23,11 @@ public class App {
             PlatServiceVersion2 platServiceVersion2 = new PlatServiceVersion2(platDaoMemoire);
 
             // Construction du menu avec le service choisi
-            Menu menu = new Menu(scanner, platServiceVersion2);
+            // ne marche plus du faite de l'avancement dans le TP 
+            // Et la construction dynamique du menu selon les beans
+            //Menu menu = new Menu(scanner, platServiceVersion2);
 
-            menu.afficher();
+            //menu.afficher();
         }
     }
 }

@@ -1,9 +1,13 @@
 package dev.ihm.options;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import dev.service.IPlatService;
 
+@Component
 public class OptionListerPlats implements IOptionMenu {
-
+	@Autowired
     private IPlatService service;
 
     public OptionListerPlats(IPlatService service) {
