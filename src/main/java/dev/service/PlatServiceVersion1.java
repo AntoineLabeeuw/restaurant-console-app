@@ -6,8 +6,14 @@ import dev.exception.PlatException;
 
 import java.util.List;
 
-public class PlatServiceVersion1 implements IPlatService {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 
+@Service
+@Profile("Service1")
+public class PlatServiceVersion1 implements IPlatService {
+	@Autowired
     private IPlatDao dao;
 
     public PlatServiceVersion1(IPlatDao dao) {
