@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import dev.config.JdbcTestConfig;
 import dev.entite.Plat;
@@ -22,31 +23,8 @@ import dev.entite.Plat;
  * @author antoinelabeeuw
  *
  */
-@ContextConfiguration(classes = { PlatDaoJdbc.class, JdbcTestConfig.class })
-@ExtendWith(SpringExtension.class)
-@ActiveProfiles({ "jdbc", "test" })
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-public class PlatDaoJdbcIntegrationTest {
-	/** jdbcTemplate */
-	@Autowired
-	JdbcTemplate jdbcTemplate;
-	/** platJdbc */
-	@Autowired
-	PlatDaoJdbc platJdbc;
-
-	@Test
-	public void listerPlatsNonVide() {
-		// Doit retourner le contenant de la base de données h2
-		List<Plat> plats = platJdbc.listerPlats();
-		assertThat(plats).isNotEmpty();
-	}
-
-	@Test
-	public void ajouterPlatTest() {
-		// si on ajoute qqchose, taille doit être +1 par rapport a avant
-		platJdbc.ajouterPlat("testTest", 2000);
-		List<Plat> plats2 = jdbcTemplate.query("SELECT * FROM PLAT WHERE NOM='testTest'", new PlatRowMapper());
-		assertThat(plats2.get(0).getNom()).contains("testTest");
-	}
-
+@SpringJUnitConfig(classes = {PlatDaoJdbc.class, JdbcTestConfig.class})
+@ActiveProfiles("jdbc")
+public class PlatDaoJdbcIntegrationTest extends IPlatDaoIntegrationTest {
+	
 }

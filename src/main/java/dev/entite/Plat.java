@@ -2,9 +2,26 @@ package dev.entite;
 
 import java.util.Objects;
 
-public class Plat {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="PLAT")
+public class Plat {
+	/** id */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
+	private int id;
+	/** nom */
+	@Column(name = "NOM")
     private String nom;
+	/** prixEnCentimesEuros */
+	@Column(name = "PRIX")
     private Integer prixEnCentimesEuros;
 
     public Plat() {
