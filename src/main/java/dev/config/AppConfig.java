@@ -23,10 +23,7 @@ import dev.service.IPlatService;
  *
  */
 @Configuration
-@ComponentScan("dev.ihm")
-@ComponentScan("dev.service")
-@ComponentScan("dev.dao")
-@ComponentScan("dev.ihm.options")
+@ComponentScan("dev")
 @PropertySource("app.properties")
 public class AppConfig {
 
