@@ -31,3 +31,4 @@ build/
 
 ## MacOS files ###
 .DS_Store
+/${file.StoragePath}
