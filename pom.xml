@@ -107,5 +107,10 @@
 			<artifactId>hibernate-core</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<!-- Spring-data -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+		</dependency>
 	</dependencies>
 </project>
